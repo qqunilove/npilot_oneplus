@@ -108,6 +108,8 @@ class CarInterface(CarInterfaceBase):
     ret.vEgoStopping = max(ntune_scc_get('vEgoStopping'), 0.4) #0.5
     ret.vEgoStarting = max(ntune_scc_get('vEgoStarting'), 0.4) #0.5 # needs to be >= vEgoStopping to avoid state transition oscillation
 
+    ret.radarTimeStep = (1.0 / 50) # 50Hz   SCC11, RadarTrack은 50Hz로 수신되는것같음... 
+    
     # genesis
     if candidate == CAR.GENESIS:
       ret.mass = 1900. + STD_CARGO_KG
