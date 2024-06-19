@@ -125,7 +125,7 @@ def get_lag_adjusted_curvature(CP, v_ego, psis, curvatures, curvature_rates):
   # This is the "desired rate of the setpoint" not an actual desired rate
   desired_curvature_rate = curvature_rates[0]
   max_curvature_rate = MAX_LATERAL_JERK / (v_ego**2)
-  safe_desired_curvature_rate = clip(desired_curvature_rate,
+  safe_desired_curvature_rate = clip(desired_curvature_rate * 0.95,
                                           -max_curvature_rate,
                                           max_curvature_rate)
   safe_desired_curvature = clip(desired_curvature,
